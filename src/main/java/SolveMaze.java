@@ -35,12 +35,21 @@ public class SolveMaze {
          */
         for (int step = 0; step < 1000; step++) {
             // Implement your maze solving algorithm here
-        }
+            while (maze.isFinished() == false) {
+                if (maze.canMove() == true) {
+                    maze.move();
+                    maze.turnRight();
+                } else if (maze.canMove() == false) {
+                    maze.turnLeft();
+                }
 
-        if (maze.isFinished()) {
-            System.out.println("You solved the maze!");
-        } else {
-            System.out.println("Try again!");
+            }
+
+            if (maze.isFinished()) {
+                System.out.println("You solved the maze!");
+            } else {
+                System.out.println("Try again!");
+            }
         }
     }
 }
